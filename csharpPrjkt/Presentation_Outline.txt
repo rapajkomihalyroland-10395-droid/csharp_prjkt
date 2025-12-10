@@ -1,0 +1,33 @@
+# Prezentáció: Könyvtár Kezelő Alkalmazás
+
+## 1. Bevezetés
+Az alkalmazás célja, hogy a felhasználók egyszerűen és átláthatóan tudják nyilvántartani otthoni könyvtárukat. A modern .NET MAUI keretrendszer segítségével készült, így több platformon (Android, iOS, Windows) is futtatható.
+Főbb funkciók: Új könyv felvétele, listázás, módosítás és törlés.
+
+## 2. Adatmodell
+Az alkalmazás egy helyi SQLite adatbázist használ.
+Egyetlen tábla került definiálásra: `Books`.
+
+Mezők:
+- **Id** (Elsődleges kulcs, automatikus számozás)
+- **Title** (Cím - Szöveg)
+- **Author** (Szerző - Szöveg)
+- **Genre** (Műfaj - Szöveg)
+- **PublishedYear** (Kiadás éve - Egész szám)
+
+## 3. Fejlesztési Lépések
+1. **Környezet és Csomagok**: A projekt létrehozása után telepítésre került a `sqlite-net-pcl` csomag az adatbázis kezeléshez.
+2. **Architektúra**: MVVM (Model-View-ViewModel) mintát követtük a kód tisztasága és karbantarthatósága érdekében.
+   - *Model*: Az adatstruktúra leírása.
+   - *ViewModel*: Az üzleti logika (pl. mentés, betöltés parancsok) és az állapot kezelése.
+   - *View*: A felhasználói felület (XAML), amely adatkötéssel (Data Binding) kommunikál a ViewModel-lel.
+3. **Funkciók Megvalósítása**:
+   - CRUD műveletek (Create, Read, Update, Delete) implementálása a `DatabaseService` osztályban.
+   - Navigáció kialakítása a főoldal és a részletező oldal között.
+   - Megerősítő ablakok hozzáadása a törlés és módosítás műveletekhez a biztonságos használat érdekében.
+
+## 4. Továbbfejlesztési Lehetőségek
+- **Keresés és Szűrés**: Lehetőség a könyvek közötti gyors keresésre cím vagy szerző alapján.
+- **Képek kezelése**: Borítókép feltöltése vagy letöltése internetről.
+- **Kölcsönzések**: Egy új tábla bevezetése, amellyel nyomon követhető, hogy kinek adtunk kölcsön könyvet.
+- **Vonalkód olvasás**: Könyvek gyors felvitele ISBN kód beolvasásával.
